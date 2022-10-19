@@ -1,0 +1,17 @@
+version: "3.7"
+
+x-xdebug: &xdebug
+  XDEBUG_MODE: "${XDEBUG_MODE:-off}"
+  XDEBUG_CONFIG: "${XDEBUG_CONFIG:-''}"
+  PHP_IDE_CONFIG: "serverName=php-docker.local"
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      <<: *xdebug
+      OTEL_SERVICE_NAME: demo
+    volumes:
+      - .:/srv/app

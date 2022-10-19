@@ -1,0 +1,25 @@
+{
+    "name": "brettmc/otel-php-ai-test",
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.0",
+        "ext-json": "*",
+        "ext-otel_instrumentation": "*",
+        "open-telemetry/sdk": "dev-main",
+        "open-telemetry/sdk-contrib": "dev-main",
+        "nyholm/psr7": "*",
+        "php-http/mock-client": "*"
+    },
+    "config": {
+        "process-timeout": 0,
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        },
+        "files": [
+            "src/Instrumentation/_register.php"
+        ]
+    }
+}
